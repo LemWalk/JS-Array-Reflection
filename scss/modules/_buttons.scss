@@ -1,0 +1,336 @@
+.btn{
+text-decoration: none;
+}
+
+//============general buttons ============
+
+.btn-blk{
+    background-color: $black-mid;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 18px;
+    border: 0;
+    padding: 15px 15px;
+    margin: 30px 0px 50px;
+    &:hover{
+        background-color: $black;
+        cursor: pointer;
+    }
+}
+
+.btn-blk-dark{
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: $black-btn;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 3px;
+    border: 0;
+    padding: 15px 30px;
+    margin: 10px 0px 30px;
+    &:hover{
+        background-color: $black-dark;
+    }
+}
+
+//================= Slider Buttons ==============
+
+.btn-slider-purple{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    background-color: $purple-primary;
+    font-size: 20px;
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    gap: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    &:hover{
+        background-color: $purple-secondary;
+        cursor: pointer;
+    }
+}
+
+.btn-slider-blue-pale{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    background-color: $blue-pale-primary;
+    font-size: 20px;
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    gap: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    &:hover{
+        background-color: $blue-pale-secondary;
+        cursor: pointer;
+    }
+}
+
+.btn-slider-blue{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    background-color: $blue-primary;
+    font-size: 20px;
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    gap: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    &:hover{
+        background-color: $blue-secondary;
+        cursor: pointer;
+    }
+}
+
+.btn-slider-green{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    background-color: $green-primary;
+    font-size: 20px;
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    gap: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    &:hover{
+        background-color: $green-secondary;
+        cursor: pointer;
+    }
+}
+
+.btn-slider-red{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    background-color: $red-primary;
+    font-size: 20px;
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    gap: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    &:hover{
+        background-color: $red-secondary;
+        cursor: pointer;
+    }
+}
+
+.btn-slider-red-pink{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+    background-color: $red-pink-primary;
+    font-size: 20px;
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    gap: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    &:hover{
+        background-color: $red-pink-secondary;
+        cursor: pointer;
+    }
+}
+
+// ================ nav buttons ==============
+
+.btn-reset{
+    padding: 0;
+}
+
+.btn-mouse{
+display: flex;
+flex-direction: row;
+border: 0;
+color: #fff;
+background-color: $blue-primary ;
+padding: 15px 15px;
+font-size: 20px;
+gap: 10px;
+border-radius: 3px;
+align-items: center;
+&:hover{
+    background-color: $blue-secondary ;
+    cursor: pointer;
+}
+}
+
+.btn-plane{
+display: flex;
+flex-direction: row;
+border: 0;
+color: #fff;
+background-color: #999;
+padding: 15px 15px;
+font-size: 20px;
+gap: 10px;
+border-radius: 3px;
+align-items: center;
+&:hover{
+    background-color: #84858f ;
+    cursor: pointer;
+}
+}
+
+
+
+//========== intro buttons ==================
+
+.btn-intro-blue-l{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #fff;
+    background-color: $blue-primary;
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 30px 0px 5px;
+    line-height: 35px;
+    &:hover{
+        background-color: $blue-secondary;
+    }
+}
+
+.btn-intro-green-l{
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #fff;
+    background-color:#00b67b;
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 30px 0px ;
+    line-height: 35px;
+    &:hover{
+        background-color: #009b69;
+    }
+}
+
+//==========news buttons =====================
+
+.btn-news-purple{
+    display: flex;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #fff;
+    background-color: $purple-primary;
+    border: 0;
+    padding: 15px;
+    border-radius: 3px;
+    margin: 15px 0px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.btn-news-blue{
+    display: flex;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #fff;
+    background-color: $blue-primary;
+    border: 0;
+    padding: 15px;
+    border-radius: 3px;
+    margin: 15px 0px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+//========== service buttons============
+
+.btn-service-blue-pale{
+    color: white;
+    background-color: $blue-pale-primary;
+    border: 0;
+    border-radius: 3px;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-bottom: 15px;    
+}
+
+.btn-service-blue{
+    color: white;
+    background-color: $blue-primary;
+    border: 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    }
+
+    .btn-service-green{
+    color: white;
+    background-color: $green-primary;
+    border: 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    }
+
+.btn-service-red{
+    color: white;
+    background-color: $red-primary;
+    border: 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    }
+
+.btn-service-purple{
+    color: white;
+    background-color: $purple-primary;
+    border: 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    }
+
+.btn-service-red-pink{
+    color: white;
+    background-color: $red-pink-primary;
+    border: 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    }
+
+.btn-service-orange{
+    color: white;
+    background-color: $orange-primary;
+    border: 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    }

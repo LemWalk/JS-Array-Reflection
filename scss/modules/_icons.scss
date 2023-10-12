@@ -1,0 +1,188 @@
+
+//======= General ======================
+
+.icn-grey-light{
+    color: $black-light;
+background-color: $grey-light;
+padding: 0;
+margin: 0;
+border: 0;
+}
+
+.icn-grey{
+    color: #fff;
+background-color: #999;
+height: auto;
+padding: 26px 16px;
+margin: 0;
+border: 0;
+align-items: center;
+border-radius: 3px;
+&:hover{
+    cursor: pointer;
+    background-color: #84858f ;
+    }
+}
+
+.icn-black-light{
+    display: flex;
+    color: $black-light;    
+    margin: 10px;
+}
+//========Nav bar Icons ======================
+
+.nav-icon-blue-pale{
+    display: block;
+    color: $blue-pale-primary;
+    transform: scale(1.4);
+    padding-bottom: 5px;            
+}
+.nav-icon-blue{
+    color: $blue-primary;
+    transform: scale(1.2);
+    padding-bottom: 5px;
+}
+.nav-icon-green{
+    color: $green-primary;
+    transform: scale(1.2);
+    padding-bottom: 5px;
+}
+.nav-icon-red{
+    color: $red-primary;
+    transform: scale(1.2);
+    padding-bottom: 5px;
+}
+.nav-icon-purple{
+    color: $purple-primary;
+    transform: scale(1.2);
+    padding-bottom: 5px;
+}
+.nav-icon-red-pink{
+    color: $red-pink-primary;
+    transform: scale(1.2);
+    padding-bottom: 5px;
+}
+.nav-icon-orange{
+    color: $orange-primary;
+    transform: scale(1.2);
+    padding-bottom: 5px;
+}
+
+
+//=========Service Icons===================
+
+.icn-service-blue-pale{
+    background-color: $blue-pale-primary;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    margin-top: 10px;    
+    margin: 15px 0px;
+    transform: scale(1.4);    
+}
+
+.icn-service-blue{
+    background-color: $blue-primary;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    margin: 15px 0px;
+    transform: scale(1.4);
+}
+
+.icn-service-green{
+    background-color: $green-primary;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    margin: 15px 0px;
+    transform: scale(1.4);
+}
+
+.icn-service-red{
+    background-color: $red-primary;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    margin: 15px 0px;
+    transform: scale(1.4);
+}
+
+.icn-service-purple{
+    background-color: $purple-primary;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    margin: 15px 0px;
+    transform: scale(1.4);
+}
+
+.icn-service-red-pink{
+    background-color: $red-pink-primary;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    margin: 15px 0px;
+    transform: scale(1.4);
+}
+
+.icn-service-orange{
+    background-color: $orange-primary;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    margin: 15px 0px;
+    transform: scale(1.4);
+}
+
+
+// =========== footer socials ===========
+
+.socials{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: left;   
+    }
+
+    .socials-top, .socials-bot{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .social-links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $black;
+        padding: 20px;
+        color: $white;
+        border-radius: 1px;
+        height: 55px;
+        width: 95px;
+        margin: 10px 10px 0px 0px;
+            }
+    
+    .fb{
+        &:hover{
+        background-color: $blue-fb;
+        }
+    }
+    
+    .li{
+        &:hover{
+        background-color: $blue-li;
+        }
+    }
+    
+    .twtr{
+        &:hover{
+        background-color: $blue-twtr;
+        }
+    }
+    
+    .ig{
+        &:hover{
+        background-color: $pink-ig;
+        }
+    }			

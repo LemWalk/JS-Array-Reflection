@@ -1,0 +1,64 @@
+//===========================
+//  Global config
+//===========================
+
+// Font Stacks
+
+$font-url--google       :  "https://fonts.googleapis.com/css2?family=Poppins&display=swap";
+$font-family--primary   : 'Poppins', sans-serif; 
+
+
+// Base Colors
+
+$black-dark      : #121318;
+$black           : #212330;
+$black-btn       : #22242e;
+$black-mid       : #333645;
+$black-light     : #323544;
+$grey            : #666;
+$grey-light      : #ddd;
+$white           : #fff;
+
+
+// Other colors
+
+$blue-pale-primary         : #67809f;
+$blue-pale-secondary       : #526781;
+$blue-primary              : #4183d7;
+$blue-secondary            : #286abd;
+$green-primary             : #2ecc7a;
+$green-secondary           : #25a25a;
+$red-primary               : #d64541;
+$red-secondary             : #bc2c28;
+$purple-primary            : #926fb1;
+$purple-secondary          : #79539a;
+$red-pink-primary          : #f62459;
+$red-pink-secondary        : #de093f;
+$orange-primary            : #ce4125;
+$orange-secondary          : #a3331d;
+
+//Social Media colors
+
+$blue-fb          : #3b5998;
+$blue-li          : #0077b5;
+$blue-twtr        : #00aced;
+$pink-ig          : #d93175;
+
+
+
+// Breakpoints 
+
+$breakpoint-xs    :1px;
+$breakpoint-s     :485px;
+$breakpoint-m     :752px;
+$breakpoint-l     :976px;
+$breakpoint-xl    :1244px;
+
+
+// Other Breakpoints
+
+// $brk-sm   : 576px;
+// $brk-med  : 768px;
+// $brk-l    : 992px;
+// $brk-xl   : 1200px;
+
