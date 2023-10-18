@@ -5,13 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="scss/application.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fac1c8a231.js" crossorigin="anonymous"></script>
     <title>JavaScript Array Reflection</title>
 </head>
 
 <body>
+    <div class="container-outer">
+        
+        <header class="header">
+            <div class="container-inner">
+                <h1>JavaScript Array Reflection</h1>
+            </div>
+        </header>
 
+        <div class="container-inner" id="main-lo">
+            <div class="content-container">
 
+                <div class="box-outer">
+                    <div class="box-title">
+                        <h2>Add your email and Generate an image</h2>
+                    </div>
+                    
+                    <div class="box-inner">
+                        <div id="img-box">
+                            <img id="fetched-image" src="https://picsum.photos/200" alt="Randomly generated images from picsum">
+                        </div>
 
+                        <form class="email-outer">
+                            <label class="email-inner" for="email">    </label>
+                            <input id="email" class="email-input" aria-label="email" placeholder="Please add your e-mail here...">
+                        </form>
+
+                        <div class="btn-box">
+                            <div class="btn-container">
+                                <button class="btn-imgs" id="btn-new-img">Generate New Image</button>
+                            </div>
+
+                            <div class="btn-container">
+                                <button class="btn-imgs" id="btn-add-img">Add image</button>
+                            </div>
+                        </div>    
+                                                
+                    </div>                    
+                </div>
+                
+                <div class="box-outer">
+                    <div class="box-title">
+                        <h2>Review your images and send them off</h2>
+                    </div>
+                    <div class="box-inner">
+                        
+                    </div> 
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="JavaScript/main.js"></script>
 </body>
-<script src="JavaScript/main.js"></script>
 </html>

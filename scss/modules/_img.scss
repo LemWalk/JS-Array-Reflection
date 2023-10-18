@@ -1,32 +1,5 @@
-.news-img{
-    img{
-        width: 100%;
-        object-fit: cover;
-    }
+img{
+    padding: 0;
+    margin: 0;
 }
-
-.nm-logo-white{
-    padding: 0px;
-    
-}
-
-.nm-logo-dark{
-    float: left;
-    clear: right;
-    max-width: 90%;
-    margin-right: 20px ;
-    &:hover{
-        cursor: pointer;
-    }
-}
-
-.img-reset{
-	float: left;
-    clear: right;
-	padding: 0;
-    margin-right: 20px ;
-    &:hover{
-        cursor: pointer;
-    }
-    }
 
