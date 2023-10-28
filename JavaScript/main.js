@@ -14,11 +14,19 @@ let imgArray = [];
 
 //========== Fetch a new image when the 'new image' button is clicked ================
 
-    btnNewImage.addEventListener("click", () => {
+    function fetchNewImg() {
         fetch(url)
         .then(response => img.src = response.url)
         .catch(error => console.error(error));
-    });
+    }
+
+    //========= Event Listeners ==============================
+
+    window.addEventListener('load', fetchNewImg('https://picsum.photos/200'));
+
+    btnAddImg.addEventListener("click", (addEmail));
+
+    btnNewImage.addEventListener("click", (fetchNewImg));
 
 
 //========= Email Validation ==============================
@@ -48,301 +56,126 @@ if(!regex.test(email.value) || email.value === '') {
 
 //======= Add submitted emails to an array ================
 
-    function addEmail() {
-        
-        if (emailValidation(email.value) === false) {
+function addEmail() {        
+    if (emailValidation(email.value) === false) {
+        let emailArrayIndex = emailArray.indexOf(email.value);
+        if (emailArrayIndex === -1) {
             emailArray.push(email.value);
-
-            let listItems = "";
-
-                    for (let i = 0; i < emailArray.length; i++) {
-                        listItems += `
-                        <li class='array-list-item'>
-                        <div class='email-pushed'>${emailArray[i]}</div>
-                        </li>`;
-                    }
-
-            document.querySelector('.array-list').innerHTML = `${listItems}`;
-
-            // console.log('Push it real good!');
+            imgArray.push([img.src]);
         } else {
-            // console.log('Sorry Chief! No email, No entry!');
+            let imgIndex = imgArray[emailArrayIndex].indexOf(img.src);
+            if (imgIndex === -1) {
+            imgArray[emailArrayIndex].push(img.src);
+        }
+        }
+            document.querySelector('.array-list').innerHTML = `${listItems(emailArray)}`;
+        } else {
+            console.log('Sorry Chief! No email, No entry!');
         }
     };
-
-        btnAddImg.addEventListener("click", (addEmail));
-
-
-        
-        // function createImageItems(arg) {
-        //     let imgItems = "";
-        //     for(let i = 0; i < arg.length; i++) {
-        //         imgItems += `<img class="img-array-item" src="${arg[i]}" alt="random image">`;
-        //     }
-        //     return imgItems;
-        
-        
-        // function createImageItems(arg) {
-        //     let imgItems = "";
-        //     for(let i = 0; i < arg.length; i++) {
-        //         imgItems += `<img class="img-array-item" src="${arg[i]}" alt="random image">`;
-        //     }
-        //     return imgItems;
-        // } 
-
-//     function createListItems(arg) {        
-//         let listItems = "";
-
-//         for (let i = 0; i < emailArray.length; i++) {
-//             listItems += `
-//             <li class='array-list-item'>
-//             <div class='email-pushed'>${emailArray[i]}</div>
-//             <div class='assigned-img'>{${createImageItems}}<div>
-//             </li>`;
-//         }
-//         return listItems
-//     }
-
     
-// function displayData() {
-//     const content = document.querySelector('.email-display');
+    function listItems(arg) {
+        let listItems = "";
+        for (let i = 0; i < arg.length; i++) {
+        listItems += `
+            <li class='array-list-item'>
+                <div class='email-pushed'>${arg[i]}</div>
+                <div class='img-display'>
+                    <div class='img-array-item'>${createImageItems(imgArray[i])}</div>
+                </div>
+            </li>`;
+        }
+        return listItems;
+        }
     
-//     content.innerHTML = `
-//     <ul class="array-list">
-//     ${createListItems(emailArray)}
-//     </ul>
-//     `;
-//     // removeBtn.style.visibility = 'visible';
-//  }
+    function createImageItems(arg) {
+        let imgItems = "";
+        for(let i = 0; i < arg.length; i++) {
+        imgItems += `<img class="img-array-item" src="${arg[i]}" alt="random image">`;
+        }
+        return imgItems;
+    }
+    
 
+//========== Add Images ========================
 
-
-
-
-
-    // function generateListItems(arg) {
-    //         let items = "";
-    //         for(let i = 0; i < arg.length; i++) {
-    //             items += `
-    //             <li class="user">
-    //             <div class="user-email" style="background-image: url(images/space-g2f7526c66_1280.jpg);">
-    //             <h3 class="email-header">${arg[i]}</h3>
-    //             </div>
-    //             <div class="user-imgs">
-    //             ${generateImageItems(pic[i])}
-    //             </div>
-    //             </li>`;
-    //         }
-    //         return items;}
-
-        
-
-        // function generateListItems(arg) {
-        //     let items = "";
-        //     for(let i = 0; i < arg.length; i++) {
-        //         items += `
-        //         <li class="user">
-        //         <div class="user-email" style="background-image: url(images/space-g2f7526c66_1280.jpg);">
-        //         <h3 class="email-header">${arg[i]}</h3>
-        //         </div>
-        //         <div class="user-imgs">
-        //         ${generateImageItems(pic[i])}
-        //         </div>
-        //         </li>`;
-        //     }
-        //     return items;
-
-
-        
-
-    // function generateImageItems(arg) {
-    //     let items = "";
-    //     for(let i = 0; i < arg.length; i++) {
-    //         items += `<img class="small-img" src="${arg[i]}" alt="random image">`;
-    //     }
-    //     return items;
-    // } 
-        
-
-
-        // function displayData() {
-        //     const content = document.querySelector('.assigned');
-            
-        //     content.innerHTML = `
-        //     <ul class="user-data">
-        //     ${generateListItems(lastEmail)}
-        //     </ul>
-        //     `;
-        //     removeBtn.style.visibility = 'visible';
-        //  }
-
+function addImg() {
+    if (emailExists(email.value) === true) {
+        let emailIndex = emailArray.indexOf(email.value);
+        if(checkImage(img.src)) {
+            console.log('image exists already');
+            imageExists();
+        } else {
+            console.log('push image to existing array');
+            imgArray[emailIndex].push(img.src);
+            imageNotExists();
+            }
+        }  else {
+        console.log('push email and image');
+        emailArray.push(email.value);
+        imgArray.push([img.src])
+        imgDoesNotExist();
+    }
+}
 
 // function assignImage() {
-
 //     if(checkEmailPresent(input.value)) { 
-//         let emailIndex = emailArray.indexOf(input.value);
+//         let emailIndex = lastEmail.indexOf(input.value);
 //         if(checkImage(img.src)) {
 //             imageThere();
 //         } else {
-//             imgArray[emailIndex].push(img.src);
+//             pic[emailIndex].push(img.src);
 //             imageNotThere();
 //         }          
 //     } else { 
-//         emailArray.push(input.value);
-//         imgArray.push([img.src]);
+//         lastEmail.push(input.value);    
+//         pic.push([img.src]);
 //         imageNotThere();
 //     }
+
 // }
 
+// ============== Check Functions ======================
+
+function emailExists() {
+    for (let i = 0; i < emailArray.length; i++) {
+        if (emailArray[i] === email.value) {
+            console.log('This matches an email.');
+            return true;
+        }
+    }
+    console.log('No match found.');
+    return false;
+}
 
 
-
-
-
-// error display functions /////////////////////////////////////////////////
-
-// function invalidEmail() {
-//     const err = document.getElementById('emailErr');
-//     if(!emailFormat.test(input.value)) {  
-//         err.style.visibility = "visible";
-//         err.style.padding ="15px 0";
-//     }
-// }
-
-// function validEmail() {
-//     const err = document.getElementById('emailErr');
-//     if(emailFormat.test(input.value)) {  
-//         err.style.visibility = "hidden";
-//         err.style.padding = "0";
-//     }
-// }
-
-
-
-
-// btnAddImg.addEventListener("click", () => {
-//     if(checkEmailPresent(input.value)) { 
-//       let emailIndex = emailArray.indexOf(input.value);
-//       if(checkImage(img.src)) {
-//           imageThere();
-//       } else {
-//           imgArray[emailIndex].push(img.src);
-//           imageNotThere();
-//       }          
-//   } else { 
-//       emailArray.push(input.value);
-//       imgArray.push([img.src]);
-//       imageNotThere();
-//   }
-// });
-
-
-
-//  // Create a new div for each email address and append it to the img-review div
-//  let emailDiv = document.createElement("div");
-//  emailDiv.innerHTML = email;
-//  emailDiv.classList.add("email-display");
-//  document.getElementById("img-review").appendChild(emailDiv);
-
-
-
-// let index = emailArray.findIndex(obj => obj.email === email);
-// let picture = document.getElementById("imgBox").src;
-
-// btnAddImg.addEventListener("click", () => {
-// emailArray.push(email.value);
-
-//     console.log('Still Working Bro, Big UPs');
-
-// });
-
-
-
-
-// btnAddImg.addEventListener("click", () => {    
-//     if (index === -1) {
-//         emailArray.push({email: email, img: [url]});
-//     } else {
-//         emailArray[index].pictures.push(url);
-//     }
-//     console.log('hello');
-// });
-
-
-
-
+    function checkImage() {
+        let emailArrayIndex = emailArray.indexOf(email.value);
     
+        if (emailArrayIndex === -1) {
+            emailArray.push(email.value);
+            imgArray.push([img.src]);
+        } else {
+            let imgIndex = imgArray[emailArrayIndex].indexOf(img.src);
+            if (imgIndex === -1) {
+            imgArray[emailArrayIndex].push(img.src);
+            }
+        }
+    }
 
-// function addEmail(email, picture) {
-//     let index = emailArray.findIndex(obj => obj.email === email);
-//     if (index === -1) {
-//         emailArray.push({email: email, pictures: [picture]});
-//     } else {
-//         emailArray[index].pictures.push(picture);
-//     }
-// }
+//======== check array for same images ==========
 
-// document.getElementById("btnAddImg").addEventListener("click", function() {
-//     let email = document.getElementById("emailInput").value;
-//     let picture = document.getElementById("imgBox").src;
-//     addEmail(email, picture);
-// });
+function imageExists() {
+    // const err = document.getElementById('imageErr');
+    // err.style.visibility = 'visible';
+    // err.style.padding = '20px 0';
+    console.log('Image already exist');
+}
 
-// let email = document.getElementById("email").value;
-// let picture = document.getElementById("imgBox").src;
+function imageDoesNotExist() {
+    // const err = document.getElementById('imageErr');
+    // err.style.visibility = 'hidden';
+    // err.style.padding = '0';
+    console.log('Image does not exist');
+}
 
-// function addEmail(email, picture) {
-//     let index = emailArray.findIndex(obj => obj.email === email);
-//     if (index === -1) {
-//         emailArray.push({email: email, pictures: [picture]});
-//     } else {
-//         emailArray[index].pictures.push(picture);
-//     }
-// }
-
-// document.getElementById("btnAddImg").addEventListener("click", function() {
-//     addEmail(email, picture);
-// });
-
-
-
-// let emailArray = [];
-
-// function addEmail(email, picture) {
-//     let index = emailArray.findIndex(obj => obj.email === email);
-//     if (index === -1) {
-//         emailArray.push({email: email, pictures: [picture]});
-//     } else {
-//         emailArray[index].pictures.push(picture);
-//     }
-// }
-
-// document.getElementById("btnAddImg").addEventListener("click", function() {
-//     let email = document.getElementById("email").value;
-//     let picture = document.getElementById("imgBox").src;
-//     addEmail(email, picture);
-// });
-
-
-
-// // Step 1: Create a container element in your HTML to display the images.
-// <div id="images"></div>
-
-// // Step 2: Loop through the emailArray and create a new container element for each email address.
-// emailArray.forEach(function(obj) {
-//     let email = obj.email;
-//     let pictures = obj.pictures;
-
-//     let emailContainer = document.createElement("div");
-//     emailContainer.innerHTML = "<h3>" + email + "</h3>";
-//     document.getElementById("images").appendChild(emailContainer);
-
-//     // Step 3: Inside each container element, loop through the pictures array and create an img element for each picture.
-//     pictures.forEach(function(picture) {
-//         let img = document.createElement("img");
-//         img.src = picture;
-
-//         // Step 4: Set the src attribute of each img element to the corresponding picture URL.
-//         emailContainer.appendChild(img);
-//     });
-// });
