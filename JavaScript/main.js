@@ -6,13 +6,17 @@ const url = "https://picsum.photos/200";
 let img = document.getElementById('fetched-image');
 const imgBox = document.getElementById('img-box');
 let email = document.getElementById("email");
+const emailMessage =  document.querySelector('.email-message');
+const btnClear = document.getElementById('btn-clear');
+const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
 //================ Arrays =============================
 
 let emailArray = [];
 let imgArray = [];
 
-//========== Fetch a new image when the 'new image' button is clicked ================
+
+//========== Fetch a new image when called ================
 
     function fetchNewImg() {
         fetch(url)
@@ -20,41 +24,55 @@ let imgArray = [];
         .catch(error => console.error(error));
     }
 
-    //========= Event Listeners ==============================
-
-    window.addEventListener('load', fetchNewImg('https://picsum.photos/200'));
-
-    btnAddImg.addEventListener("click", (addEmail));
-
-    btnNewImage.addEventListener("click", (fetchNewImg));
-
 
 //========= Email Validation ==============================
 
-// regular expression for email
-
-const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-// const regex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-
-
 function emailValidation () {
-if(!regex.test(email.value) || email.value === '') {
-    email.style.border = '3px solid #d45b5b';
-    email.style.boxShadow = '0 0 8px #d45b5b';
-    email.placeholder = 'Please insert a valid email...';
-    // document.querySelector('.email-message').innerHTML = `<h3>Email is invalid<h3>`;
-    console.log('email invalid');
-    return true;
-    } else {
-    email.style.border = '3px solid #5bd260';
-    email.style.boxShadow = '0 0 8px #5bd260';
-    email.placeholder = '';
-    console.log('email is valid');
-    return false;
+    if(!regex.test(email.value) || email.value === '') {
+            email.style.border = '3px solid #d45b5b';
+            email.style.boxShadow = '0 0 8px #d45b5b';
+            email.placeholder = 'Please insert a valid email...';
+            // console.log('email invalid');
+            return true;
+        } else {
+            email.style.border = 'solid 3px #b09ee9';
+            email.style.boxShadow = '';
+            email.placeholder = '';
+            // console.log('email is valid');
+            clearError();
+            return false;
+        }
     }
+
+//======== Create the image items for the emails ================
+
+function createImageItems(arg) {
+    let imgItems = "";
+    for(let i = 0; i < arg.length; i++) {
+    imgItems += `<img class="img-array-item" src="${arg[i]}" alt="random image">`;
+    }
+    return imgItems;
 }
 
-//======= Add submitted emails to an array ================
+//======= Create the list Items HTML ================
+    
+function listItems(arg) {
+    let listItems = "";
+    for (let i = 0; i < arg.length; i++) {
+    listItems += `
+        <li class='array-list-item'>
+            <div class='email-pushed'>${arg[i]}</div>
+            <div class='img-display'>
+                <div class='img-array-item'>${createImageItems(imgArray[i])}</div>
+            </div>
+        </li>`;
+    }
+    return listItems;
+    }
+
+
+
+//======= Add submitted emails and images to an array ================
 
 function addEmail() {        
     if (emailValidation(email.value) === false) {
@@ -62,120 +80,55 @@ function addEmail() {
         if (emailArrayIndex === -1) {
             emailArray.push(email.value);
             imgArray.push([img.src]);
+            // console.log('Push email and image to array');
         } else {
             let imgIndex = imgArray[emailArrayIndex].indexOf(img.src);
             if (imgIndex === -1) {
-            imgArray[emailArrayIndex].push(img.src);
-        }
-        }
+                imgArray[emailArrayIndex].push(img.src);
+                // console.log('push image to existing array');
+            } else {
+                invalidImgError();
+                // console.log('img assigned to email already');
+                }   
+            }
             document.querySelector('.array-list').innerHTML = `${listItems(emailArray)}`;
+            btnClear.style.visibility = 'visible';
         } else {
-            console.log('Sorry Chief! No email, No entry!');
+            invalidEmailError();
+            // console.log('Invalid entry Rejected');
         }
     };
-    
-    function listItems(arg) {
-        let listItems = "";
-        for (let i = 0; i < arg.length; i++) {
-        listItems += `
-            <li class='array-list-item'>
-                <div class='email-pushed'>${arg[i]}</div>
-                <div class='img-display'>
-                    <div class='img-array-item'>${createImageItems(imgArray[i])}</div>
-                </div>
-            </li>`;
-        }
-        return listItems;
-        }
-    
-    function createImageItems(arg) {
-        let imgItems = "";
-        for(let i = 0; i < arg.length; i++) {
-        imgItems += `<img class="img-array-item" src="${arg[i]}" alt="random image">`;
-        }
-        return imgItems;
-    }
-    
 
-//========== Add Images ========================
+//======== Error message functions ==========
 
-function addImg() {
-    if (emailExists(email.value) === true) {
-        let emailIndex = emailArray.indexOf(email.value);
-        if(checkImage(img.src)) {
-            console.log('image exists already');
-            imageExists();
-        } else {
-            console.log('push image to existing array');
-            imgArray[emailIndex].push(img.src);
-            imageNotExists();
-            }
-        }  else {
-        console.log('push email and image');
-        emailArray.push(email.value);
-        imgArray.push([img.src])
-        imgDoesNotExist();
-    }
+function invalidEmailError( ) {
+    emailMessage.innerHTML = `<h3>Please insert a valid email...</h3>`
 }
 
-// function assignImage() {
-//     if(checkEmailPresent(input.value)) { 
-//         let emailIndex = lastEmail.indexOf(input.value);
-//         if(checkImage(img.src)) {
-//             imageThere();
-//         } else {
-//             pic[emailIndex].push(img.src);
-//             imageNotThere();
-//         }          
-//     } else { 
-//         lastEmail.push(input.value);    
-//         pic.push([img.src]);
-//         imageNotThere();
-//     }
-
-// }
-
-// ============== Check Functions ======================
-
-function emailExists() {
-    for (let i = 0; i < emailArray.length; i++) {
-        if (emailArray[i] === email.value) {
-            console.log('This matches an email.');
-            return true;
-        }
-    }
-    console.log('No match found.');
-    return false;
+function invalidImgError( ) {
+    emailMessage.innerHTML = `<h3>The current image has already been assigned...</h3>`
 }
 
-
-    function checkImage() {
-        let emailArrayIndex = emailArray.indexOf(email.value);
-    
-        if (emailArrayIndex === -1) {
-            emailArray.push(email.value);
-            imgArray.push([img.src]);
-        } else {
-            let imgIndex = imgArray[emailArrayIndex].indexOf(img.src);
-            if (imgIndex === -1) {
-            imgArray[emailArrayIndex].push(img.src);
-            }
-        }
-    }
-
-//======== check array for same images ==========
-
-function imageExists() {
-    // const err = document.getElementById('imageErr');
-    // err.style.visibility = 'visible';
-    // err.style.padding = '20px 0';
-    console.log('Image already exist');
+function clearError () {
+    emailMessage.innerHTML = ``
 }
 
-function imageDoesNotExist() {
-    // const err = document.getElementById('imageErr');
-    // err.style.visibility = 'hidden';
-    // err.style.padding = '0';
-    console.log('Image does not exist');
+//======= clear all button function =================
+
+function clearAll() {
+    const arrayList = document.querySelector('.array-list');
+    emailArray.length = 0;
+    imgArray.length = 0;
+    arrayList.innerHTML = "";
+    btnClear.style.visibility = 'hidden';
 }
 
+   //========= Event Listeners ==============================
+
+    window.addEventListener('load', fetchNewImg('https://picsum.photos/200'));
+
+    btnAddImg.addEventListener("click", (addEmail));
+
+    btnNewImage.addEventListener("click", (fetchNewImg));
+
+    btnClear.addEventListener('click', clearAll);

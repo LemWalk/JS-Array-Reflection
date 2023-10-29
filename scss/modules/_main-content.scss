@@ -73,6 +73,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 10px 0px 0px;
+    font-size: 20px;
+    color: #d45b5b;
+    min-height: 20px;
+    h3{
+        padding: 0;
+        margin: 0;
+    }
 }
 
 .email-pushed{
@@ -82,10 +90,10 @@
     padding: 20px;
     text-align: center;
     justify-content: center;
-    margin-bottom: 20px;
     border-bottom: solid 3px $color-primary-1;
     overflow: auto;
     width: 100%;
+    background-color: $color-secondary-2;
 }
 
 .img-review{
@@ -120,7 +128,6 @@
     display: flex;
     flex-direction: column;
     border: solid 3px $color-primary-1;
-    padding: 10px 20px;
     margin: 10px 0px;
     border-radius: 5px;
     text-align: center;
@@ -134,6 +141,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    background-color: ghostwhite;
 }
 
 .img-array-item{
