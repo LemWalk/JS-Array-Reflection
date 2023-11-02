@@ -4,6 +4,7 @@
     .container-inner{
         margin: 0 6%;
     }
+
 }
 
 
@@ -11,10 +12,17 @@
     .container-outer{
         align-items: center;
     }
+  
 }
 //==========Footer Bot Layout =================
 
 %main-lo {
+    @include mq(extra-large){
+    .btn-box{
+        flex-direction: row;
+    }
+}
+
     @include mq(large) {
 
             .content-container{
@@ -26,9 +34,6 @@
 
             }
 
-            .btn-box{
-                flex-direction: row;
-            }
 
             .email-pushed{
                 font-size: 20px;

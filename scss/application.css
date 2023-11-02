@@ -320,7 +320,7 @@ template {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: rgba(176, 158, 233, 0.4);
+  background-color: rgba(176, 158, 233, 0.3);
 }
 
 .container-inner {
@@ -346,15 +346,17 @@ a {
     align-items: center;
   }
 }
+@media (min-width: 1244px) {
+  #main-lo .btn-box {
+    flex-direction: row;
+  }
+}
 @media (min-width: 976px) {
   #main-lo .content-container {
     flex-direction: row;
   }
   #main-lo .box-outer {
     width: 45vw;
-  }
-  #main-lo .btn-box {
-    flex-direction: row;
   }
   #main-lo .email-pushed {
     font-size: 20px;
