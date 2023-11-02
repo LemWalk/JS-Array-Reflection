@@ -8,7 +8,6 @@ text-decoration: none;
 .btn-imgs{
     background-color: $color-secondary-2;
     border:solid 3px $color-tertiary-1;
-    margin: 20px 0px;
     padding: 5px 10px;
     width: 200px;
     border-radius: 5px;
@@ -29,6 +28,9 @@ text-decoration: none;
     p{
         padding: 0;
         margin: 0;
+    }
+    &:hover{
+        background-color: $color-secondary-1
     }
 }
 

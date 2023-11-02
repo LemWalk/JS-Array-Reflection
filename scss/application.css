@@ -320,14 +320,12 @@ template {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #fff;
-  max-width: 1440px;
-  width: auto;
+  background-color: rgba(176, 158, 233, 0.4);
 }
 
 .container-inner {
-  margin: 0px auto;
-  width: 80%;
+  margin: 0px 10%;
+  max-width: 1440px;
 }
 
 a {
@@ -340,23 +338,23 @@ a {
 
 @media (min-width: 1244px) {
   .container-inner {
-    width: 88%;
+    margin: 0 6%;
+  }
+}
+@media (min-width: 1244px) {
+  .container-outer {
+    align-items: center;
   }
 }
 @media (min-width: 976px) {
   #main-lo .content-container {
-    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 40px;
   }
-  #main-lo .content-container > * {
-    flex: 1 1 calc(50% - 80px);
+  #main-lo .box-outer {
+    width: 45vw;
   }
   #main-lo .btn-box {
-    display: flex;
     flex-direction: row;
-    gap: 40px;
   }
   #main-lo .email-pushed {
     font-size: 20px;
@@ -375,7 +373,6 @@ img {
 .btn-imgs {
   background-color: #fee9e1;
   border: solid 3px #b09ee9;
-  margin: 20px 0px;
   padding: 5px 10px;
   width: 200px;
   border-radius: 5px;
@@ -398,12 +395,16 @@ img {
   padding: 0;
   margin: 0;
 }
+#btn-clear:hover {
+  background-color: #fad4c0;
+}
 
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%;
   background-color: #fad4c0;
   border-bottom: solid 3px #b09ee9;
 }
@@ -411,6 +412,7 @@ img {
 .content-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 40px;
   margin: 40px 0px;
 }
@@ -418,14 +420,20 @@ img {
 .box-outer {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   border: solid 4px #b09ee9;
   border-radius: 5px;
   background-color: #c0fdfb;
 }
 
-.box-title {
+.box-inner {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.box-title {
   text-align: center;
   border-bottom: solid 3px #b09ee9;
   padding: 10px;
@@ -435,17 +443,11 @@ img {
   margin: 0;
 }
 
-.box-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-
 .btn-box {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 #img-box {
@@ -488,12 +490,10 @@ img {
 }
 
 .email-pushed {
-  display: flex;
   font-size: 16px;
   font-weight: bold;
   padding: 20px;
   text-align: center;
-  justify-content: center;
   border-bottom: solid 3px #64b6ac;
   overflow: auto;
   width: 100%;
@@ -539,11 +539,7 @@ img {
 
 .img-display {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   padding: 20px;
   background-color: ghostwhite;
 }
@@ -555,6 +551,8 @@ img {
   gap: 15px;
   justify-content: center;
   align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .img-array-item img {
   border-radius: 5px;

@@ -2,38 +2,38 @@
 
 @include mq(extra-large) {
     .container-inner{
-        width: 88%;
+        margin: 0 6%;
     }
 }
 
+
+@include mq(extra-large) {
+    .container-outer{
+        align-items: center;
+    }
+}
 //==========Footer Bot Layout =================
 
 %main-lo {
     @include mq(large) {
 
             .content-container{
-                display:flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 40px;
+                flex-direction: row; 
             }
+        
+            .box-outer{
+                width: 45vw;  
 
-            .content-container>*{
-                flex: 1 1 calc(50% - 80px);
             }
 
             .btn-box{
-                display: flex;
                 flex-direction: row;
-                gap: 40px;
             }
 
             .email-pushed{
                 font-size: 20px;
-
             }
-            
+        
     }
 }
-
 

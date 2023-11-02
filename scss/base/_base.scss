@@ -6,22 +6,18 @@
 	font-size: 16px;
 }
 
-//body
-
 .container-outer{
 display: flex;
 flex-direction: column;
 min-height: 100vh;
 margin: 0;
 padding:0;
-background-color: #fff;
-max-width: 1440px;
-width: auto;
+background-color:rgba($color: $color-tertiary-1, $alpha: 0.4);
 }
 
 .container-inner{
-	margin: 0px auto;
-	width: 80%;
+	margin: 0px 10%;
+	max-width: 1440px;
 }
 
 a{

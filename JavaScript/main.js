@@ -15,6 +15,18 @@ const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 let emailArray = [];
 let imgArray = [];
 
+//========== Prevent Default in the form ================
+
+const form = document.querySelector('form');
+
+// form.addEventListener('submit', function(event) {
+//     event.preventDefault();
+// });
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+});
+
 
 //========== Fetch a new image when called ================
 
@@ -49,7 +61,7 @@ function emailValidation () {
 function createImageItems(arg) {
     let imgItems = "";
     for(let i = 0; i < arg.length; i++) {
-    imgItems += `<img class="img-array-item" src="${arg[i]}" alt="random image">`;
+    imgItems += `<img class="img-array-item" src="${arg[i]}" alt="Randomly generated image from Picsum">`;
     }
     return imgItems;
 }
@@ -124,8 +136,6 @@ function clearAll() {
 }
 
    //========= Event Listeners ==============================
-
-    window.addEventListener('load', fetchNewImg('https://picsum.photos/200'));
 
     btnAddImg.addEventListener("click", (addEmail));
 
