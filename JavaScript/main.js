@@ -39,6 +39,7 @@ form.addEventListener('submit', (event) => {
 
 //========= Email Validation ==============================
 
+
 function emailValidation () {
     if(!regex.test(email.value) || email.value === '') {
             email.style.border = '3px solid #d45b5b';
@@ -111,6 +112,7 @@ function addEmail() {
         }
     };
 
+
 //======== Error message functions ==========
 
 function invalidEmailError( ) {
@@ -142,3 +144,5 @@ function clearAll() {
     btnNewImage.addEventListener("click", (fetchNewImg));
 
     btnClear.addEventListener('click', clearAll);
+
+    window.addEventListener('load', fetchNewImg('https://picsum.photos/200'));
